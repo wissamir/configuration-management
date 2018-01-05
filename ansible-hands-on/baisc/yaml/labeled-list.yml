@@ -1,3 +1,5 @@
+# in YAML think about this as
+# a labled list/array
 Fruits:
  - Orange
  - Apple
