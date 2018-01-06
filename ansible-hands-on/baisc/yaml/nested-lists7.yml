@@ -1,7 +1,11 @@
 #In contrary of what you've written in the comments inside nested-lists6.yml, seems it is possible to nest list inside a list 
 #inside another list and so over.. Eventhough in this case yamllint gives errors, you'are still able
 #to parse the file with PyYAML ... here is the parsing result
-#
+# Still you cannot do something like.. you have to break list nesting using dictionaries ":" :
+# - A
+#  - B
+#   - C
+#    - D
 #
 #>>> fd = open('nested-lists7.yml', 'r')
 #>>> yaml.load(fd)
