@@ -1,0 +1,2 @@
+target1 ansible_host=vagrant@172.16.46.251 ansible_password=vagrant
+target2 ansible_host=vagrant@172.16.46.250 ansible_password=vagrant
