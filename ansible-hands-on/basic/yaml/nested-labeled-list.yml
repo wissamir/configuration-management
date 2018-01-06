@@ -1,0 +1,10 @@
+# in this case, it is not 
+# just a labled list but
+# rather a nested labled list
+#>>> fd = open('nested-labled-list.yml', 'r')
+#>>> yaml.load(fd)
+#[{'Fruits': ['Orange', 'Apple', 'Banana']}]
+- Fruits:
+  - Orange
+  - Apple
+  - Banana

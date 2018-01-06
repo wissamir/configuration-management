@@ -1,0 +1,6 @@
+#>>> fd = open('nested-lists2.yml', 'r')
+#>>> yaml.load(fd)
+#[{'A': ['A1', 'A2']}]
+- A:
+  - A1
+  - A2

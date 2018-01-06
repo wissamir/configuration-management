@@ -1,0 +1,8 @@
+# in YAML think about a simple list/array
+# as an anonymous list/array
+#>>> fd = open('simple-list.yml', 'r')
+#>>> yaml.load(fd)
+#['Orange', 'Apple', 'Banana']
+- Orange
+- Apple
+- Banana

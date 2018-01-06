@@ -1,0 +1,9 @@
+# a key-value is a simple dictionary or
+# think of it as a simple map or an anonymous dictionary/map
+#>>> fd = open('key-value-pair.yml', 'r')
+#>>> yaml.load(fd)
+#{'Fruit': 'Apple', 'Drink': 'Water', 'Dessert': 'Cake', 'Vegetable': 'Carrot'}
+Fruit: Apple
+Drink: Water
+Dessert: Cake
+Vegetable: Carrot

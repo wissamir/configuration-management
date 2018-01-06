@@ -1,0 +1,11 @@
+# in YAML think about this as
+# a labled list/array... in parsing notion
+# it is a dictionary in which the label is a key
+# and the list is the value.. as seen below
+#>>> fd = open('labeled-list.yml', 'r')
+#>>> yaml.load(fd)
+#{'Fruits': ['Orange', 'Apple', 'Banana']}
+Fruits:
+ - Orange
+ - Apple
+ - Banana

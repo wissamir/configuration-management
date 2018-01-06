@@ -1,0 +1,16 @@
+# You do not understand the parsing of the following document!!!??
+#>>> fd = open('nested-lists.yml', 'r')
+#>>> yaml.load(fd)
+#{'A': ['A1', 'A2 - B1 - B2 - C1 - C2 - D1 - D2 - E1 - E2 - F1']}
+A:
+ - A1
+ - A2
+  - B1
+  - B2
+   - C1
+   - C2
+    - D1
+    - D2
+     - E1
+     - E2
+      - F1

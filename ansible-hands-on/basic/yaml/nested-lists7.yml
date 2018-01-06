@@ -1,0 +1,37 @@
+#In contrary of what you've written in the comments inside nested-lists6.yml, seems it is possible to nest list inside a list 
+#inside another list and so over.. Eventhough in this case yamllint gives errors, you'are still able
+#to parse the file with PyYAML ... here is the parsing result
+# Still you cannot do something like.. you have to break list nesting using dictionaries ":" :
+# - A
+#  - B
+#   - C
+#    - D
+#
+#>>> fd = open('nested-lists7.yml', 'r')
+#>>> yaml.load(fd)
+#[{'A': ['A1', {'A2': [{'A3': ['B1', {'B2': ['C1', {'C2': ['D1', {'D2': ['E1', {'E2': ['F1', {'F2': ['G1', {'G2': ['H1', {'H2': ['I1', {'I2': ['K1', {'K2': None, 'Name': 'Wissam', 'Surname': 'Abu Ahmad'}]}]}]}]}]}]}]}]}]}]}]}]
+
+- A:
+  - A1
+  - A2:
+    - A3:
+      - B1
+      - B2:
+        - C1
+        - C2:
+          - D1
+          - D2:
+            - E1
+            - E2:
+              - F1
+              - F2:
+                - G1
+                - G2:
+                  - H1
+                  - H2:
+                    - I1
+                    - I2:
+                      - K1
+                      - K2:
+                        Name: Wissam
+                        Surname: Abu Ahmad
