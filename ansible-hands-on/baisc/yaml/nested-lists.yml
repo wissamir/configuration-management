@@ -1,0 +1,14 @@
+# in YAML think about this as
+# a labled list/array
+A:
+ - A1
+ - A2
+  - B1
+  - B2
+   - C1
+   - C2
+    - D1
+    - D2
+     - E1
+     - E2
+      - F1
