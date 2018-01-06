@@ -1,0 +1,36 @@
+#>>> fd = open('list-of-maps.yml', 'r')
+#
+#>>> yaml.load(fd)
+#[{'Name': {'Official': 'Wissam', 'Nick-name': 'Wiwi'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Honey', 'Height': '1.79m'}, {'Name': {'Official': 'Khulod', 'Nick-name': 'Khokha'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Brown', 'Height': '1.75m'}, {'Name': {'Official': 'Amir', 'Nick-name': 'Amora'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Blue', 'Height': '1.1m'}, {'Name': {'Official': 'Lina', 'Nick-name': 'Lolo'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Green', 'Height': '0.95m'}]
+#
+#>>> l=[{'Name': {'Official': 'Wissam', 'Nick-name': 'Wiwi'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Honey', 'Height': '1.79m'}, {'Name': {'Official': 'Khulod', 'Nick-name': 'Khokha'}
+#... , 'Surname': 'Abu Ahmad', 'Eye-color': 'Brown', 'Height': '1.75m'}, {'Name': {'Official': 'Amir', 'Nick-name': 'Amora'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Blue', 'Height': '
+#... 1.1m'}, {'Name': {'Official': 'Lina', 'Nick-name': 'Lolo'}, 'Surname': 'Abu Ahmad', 'Eye-color': 'Green', 'Height': '0.95m'}]
+#
+#>>> len(l)
+#4
+
+- Name:
+   Official: Wissam
+   Nick-name: Wiwi
+  Surname: Abu Ahmad
+  Eye-color: Honey
+  Height: 1.79m
+- Name:
+   Official: Khulod
+   Nick-name: Khokha
+  Surname: Abu Ahmad
+  Eye-color: Brown
+  Height: 1.75m
+- Name:
+   Official: Amir
+   Nick-name: Amora
+  Surname: Abu Ahmad
+  Eye-color: Blue
+  Height: 1.1m
+- Name:
+   Official: Lina
+   Nick-name: Lolo
+  Surname: Abu Ahmad
+  Eye-color: Green
+  Height: 0.95m
