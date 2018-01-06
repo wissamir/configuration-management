@@ -1,4 +1,7 @@
 # nested two labled lists
+#>>> fd = open('nested-two-labeled-lists.yml', 'r')
+#>>> yaml.load(fd)
+#[{'Fruits': ['Orange', 'Apple', 'Banana']}, {'Vegetables': ['Carrot', 'Tomato']}]
 - Fruits:
   - Orange
   - Apple

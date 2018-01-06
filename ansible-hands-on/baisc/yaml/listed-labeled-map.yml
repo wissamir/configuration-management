@@ -1,5 +1,7 @@
-# a key-value is a simple dictionary or
-# simple map or an anonymous dictionary/map
+# a dictionary of dictionaries where everything is inside a list
+#>>> fd = open('listed-labeled-map.yml', 'r')
+#>>> yaml.load(fd)
+#[{'Side-dish': {'Fruit': 'Apple', 'Drink': 'Water', 'Dessert': 'Cake', 'Vegetable': 'Carrot'}}]
 - Side-dish:
    Fruit: Apple
    Drink: Water
