@@ -1,0 +1,17 @@
+# a key-value is a simple dictionary or
+# simple map or an anonymous dictionary/map
+Side-dish:
+ Fruit: Apple
+ Drink:
+  Water: Still
+  Wine: Red
+  Coca: Diet
+ Dessert:
+  - Tiramisu
+  - Strodel
+  - Sorbetto
+ Vegetable: Carrot
+Main-dish:
+ Meat: Beef
+ Bread: Arabic
+ Pasta: Noodles
