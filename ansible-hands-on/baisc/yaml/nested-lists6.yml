@@ -1,0 +1,35 @@
+#>>> fd = open('nested-lists6.yml', 'r')
+#>>> yaml.load(fd)
+#[{'A': ['A1', 'A2', {'A3': None}, {'B1': {'C1': 'wis', 'C2': 'koko', 'C3': ['D1', 'D2', {'D3': None, 'E1': None, 'E2': None, 'E3': None, 'F1': 'Amir', 'F2': 'Lina', 'F3': ['G1', 'G2', {'G3': None, 'H1': None, 'H2': 'Khulod', 'H3': ['I1', 'I2', {'I3': None, 'J1': None, 'J2': 'Wissam'}]}]}]}}]}]
+# N.B - yamllint continues to give " 31:12     error    wrong indentation: expected 12 but found 11  (indentation)"
+# so, with this example you show it is possible to nest list inside a list
+# but you could not nest list inside list inside list... you have first to break list nesting
+# with a map/dictionary.... study more about yaml to see if it is possible
+- A:
+  - A1
+  - A2
+  - A3:
+  - B1:
+     C1: wis
+     C2: koko
+     C3:
+      - D1
+      - D2
+      - D3:
+        E1:
+        E2:
+        E3:
+        F1: Amir
+        F2: Lina
+        F3:
+         - G1
+         - G2
+         - G3:
+           H1:
+           H2: Khulod
+           H3:
+           - I1
+           - I2
+           - I3:
+             J1:
+             J2: Wissam
