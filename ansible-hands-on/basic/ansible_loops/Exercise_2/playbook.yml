@@ -1,0 +1,78 @@
+# To a more realistic use case. We are attempting to install multiple packages using yum module.
+# The current playbook installs only a single package.
+# WA - note that this time they defined the packages list inside the vars directive at the play level, unlike what they did in Exercise1!! so what is the best practice?
+# WA - note that you can define the packages list inside the task itself not just at the play level:
+
+#  tasks:
+#    -
+#      yum:
+#        name: "{{ item }}"
+#        state: present
+#      with_items:
+#        - httpd
+#        - binutils
+#        - glibc
+#        - ksh
+#        - libaio
+#        - libXext
+#        - gcc
+#        - make
+#        - sysstat
+#        - unixODBC
+#        - mongodb
+#        - nodejs
+#        - grunt
+
+
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#-
+#  name: Install required packages
+#  hosts: localhost
+#  packages:
+#      -	httpd
+#      -	binutils
+#      -	glibc
+#      -	ksh
+#      -	libaio
+#      -	libXext
+#      -	gcc
+#      -	make
+#      -	sysstat
+#      -	unixODBC
+#      -	mongodb
+#      -	nodejs
+#      -	grunt
+#
+#  tasks:
+#    -
+#      yum: name=httpd state=present
+# ------------------------------
+#           AFTER
+# ------------------------------
+-
+  name: Install required packages
+  hosts: localhost
+  vars:
+    packages:
+        - httpd
+        - binutils
+        - glibc
+        - ksh
+        - libaio
+        - libXext
+        - gcc
+        - make
+        - sysstat
+        - unixODBC
+        - mongodb
+        - nodejs
+        - grunt
+
+  tasks:
+    -
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"
