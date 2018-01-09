@@ -1,0 +1,41 @@
+# Update the playbook to add a new task to start httpd services on all nodes
+# service module documentation
+#Ansible Documentation: Service Module
+#
+## Example action to start service httpd, if not running
+#- service:
+#    name: httpd
+#    state: started
+# 
+## Example action to stop service httpd, if running
+#- service:
+#    name: httpd
+#    state: stopped
+
+# BEFORE
+# ---------------
+#-
+#  name: Execute a script on all web server nodes and start httpd service
+#  hosts: web_nodes
+#  tasks:
+#    -
+#      name: Execute a script
+#      script: /tmp/install_script.sh
+
+#
+
+# AFTER
+# ---------------
+-
+  name: Execute a script on all web server nodes and start httpd service
+  hosts: web_nodes
+  tasks:
+    -
+      name: Execute a script
+      script: /tmp/install_script.sh
+
+    -
+      name: Start httpd service
+      service:
+        name: httpd
+        state: started

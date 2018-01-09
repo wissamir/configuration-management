@@ -1,0 +1,73 @@
+# Update the playbook to add a new task at second position (right after adding entry to resolv.conf) to create a new web user.
+# Use the "user" module for this. User details to be used are given below:
+# Username: web_user
+# uid: 1040
+# group: developers
+#
+# user documentation
+# Add the user 'johnd' with a specific uid and a primary group of 'admin'
+#- user:
+#    name: johnd
+#    uid: 1040
+#    group: admin
+# 
+## Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+#- user:
+#    name: james
+#    shell: /bin/bash
+#    groups: admins,developers
+#    append: yes
+
+# BEFORE
+# ---------------
+#-
+#  name: Setup web server on all nodes
+#  hosts: web_nodes
+#  tasks:
+#    -
+#      name: Update entry into /etc/resolv.conf
+#      lineinfile:
+#        path: /etc/resolv.conf
+#        line: 'nameserver 10.1.250.10'
+#
+#    -
+#      name: Execute a script
+#      script: /tmp/install_script.sh
+#
+#    -
+#      name: Start httpd service
+#      service:
+#        name: httpd
+#        state: present
+
+#
+#
+
+# AFTER
+# ---------------
+-
+  name: Setup web server on all nodes
+  hosts: web_nodes
+  tasks:
+    -
+      name: Update entry into /etc/resolv.conf
+      lineinfile:
+        path: /etc/resolv.conf
+        line: 'nameserver 10.1.250.10'
+
+    -
+      name: Create a new user
+      user:
+        name: web_user
+        uid: 1040
+        group: developers
+
+    -
+      name: Execute a script
+      script: /tmp/install_script.sh
+
+    -
+      name: Start httpd service
+      service:
+        name: httpd
+        state: present
