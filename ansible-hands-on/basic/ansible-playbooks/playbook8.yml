@@ -1,0 +1,41 @@
+#vagrant@ansible-controller1:/vagrant/misc$ ansible-playbook -i ./inventory.txt playbook8.yml  -vv
+#ansible-playbook 2.4.2.0
+#  config file = /etc/ansible/ansible.cfg
+#  configured module search path = [u'/home/vagrant/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+#  ansible python module location = /usr/local/lib/python2.7/dist-packages/ansible
+#  executable location = /usr/local/bin/ansible-playbook
+#  python version = 2.7.12 (default, Nov 20 2017, 18:23:56) [GCC 5.4.0 20160609]
+#Using /etc/ansible/ansible.cfg as config file
+#
+#PLAYBOOK: playbook8.yml *************************************************************************************************************************************************************
+#1 plays in playbook8.yml
+#
+#PLAY [Execute ping module on target1] ***********************************************************************************************************************************************
+#
+#TASK [Gathering Facts] **************************************************************************************************************************************************************
+#ok: [target1]
+#META: ran handlers
+#
+#TASK [Execute the ping module] ******************************************************************************************************************************************************
+#task path: /vagrant/misc/playbook8.yml:6
+#ok: [target1] => {"changed": false, "ping": "pong"}
+#META: ran handlers
+#META: ran handlers
+#
+#PLAY RECAP **************************************************************************************************************************************************************************
+#target1                    : ok=2    changed=0    unreachable=0    failed=0
+
+# so, this playbook is like if you run it from command line directly:
+#vagrant@ansible-controller1:/vagrant/misc$ ansible -i ./inventory.txt target1 -m ping
+#target1 | SUCCESS => {
+#    "changed": false,
+#    "ping": "pong"
+#}
+
+-
+  name: Execute ping module on target1
+  hosts: target1
+  tasks:
+    -
+      name: Execute the ping module
+      ping: 
