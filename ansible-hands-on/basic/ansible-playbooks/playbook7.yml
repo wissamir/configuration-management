@@ -1,0 +1,36 @@
+#vagrant@ansible-controller1:/vagrant/misc$ ansible-playbook -i ./inventory.txt playbook7.yml
+#
+#PLAY [Execute command to display date on target1] ***********************************************************************************************************************************
+#
+#TASK [Gathering Facts] **************************************************************************************************************************************************************
+#ok: [target1]
+#
+#TASK [Execute a date command] *******************************************************************************************************************************************************
+#changed: [target1]
+#
+#PLAY [Execute a command to display hosts file contents on target2] ******************************************************************************************************************
+#
+#TASK [Gathering Facts] **************************************************************************************************************************************************************
+#ok: [target2]
+#
+#TASK [Execute a command to display hosts file] **************************************************************************************************************************************
+#changed: [target2]
+#
+#PLAY RECAP **************************************************************************************************************************************************************************
+#target1                    : ok=2    changed=1    unreachable=0    failed=0
+#target2                    : ok=2    changed=1    unreachable=0    failed=0
+
+-
+  name: Execute command to display date on target1
+  hosts: target1
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+-
+  name: Execute a command to display hosts file contents on target2
+  hosts: target2
+  tasks:
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts

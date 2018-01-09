@@ -1,0 +1,12 @@
+# So, to see outputs use -v, -vv, -vvv, -vvvv
+# ansible-playbook -i ./inventory.txt playbook5.yml  -vvvv
+-
+  name: Execute two commands on target2
+  hosts: target2
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts

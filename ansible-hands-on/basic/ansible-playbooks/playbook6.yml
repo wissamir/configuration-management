@@ -1,0 +1,42 @@
+# So, to see outputs use -v, -vv, -vvv, -vvvv
+# ansible-playbook -i ./inventory.txt playbook6.yml  -vvvv
+
+#vagrant@ansible-controller1:/vagrant/misc$ cat inventory.txt
+#target1 ansible_host=vagrant@172.16.46.251 ansible_ssh_pass=vagrant
+#target2 ansible_host=vagrant@172.16.46.250 ansible_ssh_pass=vagrant
+#
+#[all]
+#target1
+#target2
+#
+#vagrant@ansible-controller1:/vagrant/misc$ ansible-playbook -i ./inventory.txt playbook6.yml
+#
+#PLAY [Execute two commands on target2] **********************************************************************************************************************************************
+#
+#TASK [Gathering Facts] **************************************************************************************************************************************************************
+#ok: [target2]
+#ok: [target1]
+#
+#TASK [Execute a date command] *******************************************************************************************************************************************************
+#changed: [target2]
+#changed: [target1]
+#
+#TASK [Execute a command to display hosts file] **************************************************************************************************************************************
+#changed: [target1]
+#changed: [target2]
+#
+#PLAY RECAP **************************************************************************************************************************************************************************
+#target1                    : ok=3    changed=2    unreachable=0    failed=0
+#target2                    : ok=3    changed=2    unreachable=0    failed=0
+
+
+-
+  name: Execute two commands on target2
+  hosts: all
+  tasks:
+    -
+      name: Execute a date command
+      command: date
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts

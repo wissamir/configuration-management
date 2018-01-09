@@ -1,0 +1,14 @@
+#run it by: ansible-playbook -i ./inventory.txt playbook2.yml
+# inventor file is:
+#target1 ansible_host=vagrant@172.16.46.251 ansible_ssh_pass=vagrant
+#target2 ansible_host=vagrant@172.16.46.250 ansible_ssh_pass=vagrant
+# or 
+#target1 ansible_host=vagrant@172.16.46.251 ansible_password=vagrant
+#target2 ansible_host=vagrant@172.16.46.250 ansible_password=vagrant
+-
+  name: Wissam random name
+  hosts: target2
+  tasks:
+    -
+      name: Execute a date command on target2
+      command: date
