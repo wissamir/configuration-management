@@ -3,6 +3,9 @@
 # However, when this playbook is run multiple times, it keeps adding new entries of same line into the resolv.conf file.
 # Add a register directive to store the output of the first command and add a conditional to the second command to check if the output contains the name server ("10.0.250.10") already
 
+# W.A - Important: from this example you get an answer to a question you had: the register directive has a scope that goes beyond the task in which it was defined!
+#   in this example, the register directive was defined in the first shell task and its value was inspected in the second shell task
+
 #Conditionals - 3
 #The given playbook attempts to add an entry into the resolv.conf file for nameserver.
 #First, we run a command using the 'shell' module to get the contents of resolv.conf file and then we add a new line containing the name server data into the file
