@@ -1,0 +1,38 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Every Vagrant development environment requires a box. You can search for
+# boxes at https://atlas.hashicorp.com/search.
+BOX_IMAGE1 = "ubuntu/xenial64"
+BOX_IMAGE2 = "centos/7"
+
+Vagrant.configure("2") do |config|
+   config.vm.provider "virtualbox" do |v|
+     v.memory = 4096
+     v.cpus = 2
+   end
+
+   config.vm.define "puppetmaster" do |pm|
+     pm.vm.box = BOX_IMAGE2
+     pm.vm.network "private_network", ip: "192.168.33.10"
+     pm.vm.hostname = "puppetmaster"
+   end
+
+   config.vm.define "puppet-agent-centos" do |pac|
+     pac.vm.box = BOX_IMAGE2
+     pac.vm.network "private_network", ip: "192.168.33.11"
+     pac.vm.hostname = "centos-agent"
+   end
+
+
+   config.vm.define "puppet-agent-ubuntu" do |pau|
+     pau.vm.box = BOX_IMAGE1
+     pau.vm.network "private_network", ip: "192.168.33.12"
+     pau.vm.hostname = "ubuntu-agent"
+   end
+
+  # Install avahi on all machines  
+#  config.vm.provision "shell", inline: <<-SHELL
+#    apt-get install -y avahi-daemon libnss-mdns
+#  SHELL
+end
