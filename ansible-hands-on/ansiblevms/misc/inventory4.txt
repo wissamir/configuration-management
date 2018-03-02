@@ -1,0 +1,6 @@
+target1 ansible_host=root@172.16.32.73 ansible_ssh_pass=000000
+target2 ansible_host=root@172.16.32.75 ansible_ssh_pass=000000
+
+[all]
+target1
+target2

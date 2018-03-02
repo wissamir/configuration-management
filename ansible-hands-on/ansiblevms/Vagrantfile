@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Every Vagrant development environment requires a box. You can search for
+# boxes at https://atlas.hashicorp.com/search.
+BOX_IMAGE = "bento/ubuntu-16.04"
+#BOX_IMAGE = "centos/7"
+ANSIBLE_CONTROLLER_COUNT = 1
+
+TARGET_SERVER_COUNT = 2
+
+Vagrant.configure("2") do |config|
+  (1..ANSIBLE_CONTROLLER_COUNT).each do |i|
+     config.vm.define "ansible-controller#{i}" do |subconfig|
+       subconfig.vm.box = BOX_IMAGE
+       subconfig.vm.hostname = "ansible-controller#{i}"
+       subconfig.vm.network :private_network, ip: "10.0.0.#{i + 1}"
+       #subconfig.vm.network :bridge , :mac => "080027XXXXX#{i}"
+       #subconfig.vm.network :bridged , :mac => "080027XXXXX#{i}"
+       #subconfig.vm.base_mac = "080027XXXXX#{i}"
+       #subconfig.vm.network "private_network", ip: "192.168.7.#{i+1}", :mac => "5CA1AB1E000#{i+1}", auto_config: false
+       subconfig.vm.network "public_network"
+       subconfig.vm.provider "virtualbox" do |v|
+	  v.memory = 4096
+	  v.cpus = 2
+       end
+     end
+  end
+   
+  (1..TARGET_SERVER_COUNT).each do |i|
+    config.vm.define "target#{i}" do |subconfig|
+      subconfig.vm.box = BOX_IMAGE
+      subconfig.vm.hostname = "target#{i}"
+      subconfig.vm.network :private_network, ip: "10.0.0.#{i + 10}"
+      #subconfig.vm.network :bridge , :mac => "080027XXXXY#{i}"
+      #subconfig.vm.network :bridged , :mac => "080027XXXXY#{i}"
+      #subconfig.vm.base_mac = "080027XXXXY#{i}"
+      #subconfig.vm.network "private_network", ip: "192.168.7.#{i+10}", :mac => "5CA1AB1E00#{i+10}", auto_config: false
+      subconfig.vm.network "public_network"
+      subconfig.vm.provider "virtualbox" do |v|
+         v.memory = 8192
+         v.cpus = 4
+      end
+    end
+  end
+
+  # Install avahi on all machines  
+#  config.vm.provision "shell", inline: <<-SHELL
+#    apt-get install -y avahi-daemon libnss-mdns
+#  SHELL
+end

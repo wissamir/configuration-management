@@ -1,0 +1,22 @@
+#Ansible Modules - 1
+#Update the playbook with a play to "Execute a script on all web server nodes". The script is located at /tmp/install_script.sh. Hosts is web_nodes.
+#
+#Link to Ansible Documentation: Ansible Script Module
+#
+#Examples
+#
+## Example from Ansible Playbooks
+#- script: /some/local/script.sh --some-arguments 1234
+# 
+## Run a script that creates a file, but only if the file is not yet created
+#- script: /some/local/create_file.sh --some-arguments 1234
+#  args:
+#    creates: /the/created/file.txt
+
+-
+  name: Execute a script on all web server nodes
+  hosts: web_nodes
+  tasks:
+    -
+      name: Execute a script on web_nodes
+      script: /tmp/install_script.sh

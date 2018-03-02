@@ -1,0 +1,8 @@
+# but how to receive output back??
+-
+  name: Execute a command to display hosts file on target2
+  hosts: target2
+  tasks:
+    -
+      name: Execute a command to display hosts file
+      command: cat /etc/hosts
